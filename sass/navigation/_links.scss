@@ -1,0 +1,15 @@
+a {
+	color: $theme-primary;
+	text-decoration: none;
+	transition: color 0.15s;
+
+	&:visited {
+		color: $theme-primary;
+	}
+	&:hover,
+	&:focus,
+	&:active {
+		color: darken( $theme-primary, 15% );
+		outline: 0;
+	}
+}

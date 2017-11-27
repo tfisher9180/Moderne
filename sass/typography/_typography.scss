@@ -1,0 +1,20 @@
+body,
+button,
+input,
+select,
+optgroup,
+textarea {
+	color: $theme-secondary;
+	font-family: $font__main;
+	@include font-size(0.8);
+	font-weight: 300;
+	line-height: $font__line-height-body;
+}
+
+body {
+	-webkit-font-smoothing: antialiased;
+}
+
+@import "headings";
+
+@import "copy";

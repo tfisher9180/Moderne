@@ -1,0 +1,104 @@
+#mobile-navigation,
+#page,
+#page:after {
+	transition: all $mobile-navigation-transition-timing cubic-bezier(0.190, 1.000, 0.220, 1.000);
+}
+
+html {
+
+	&.mobile-nav {
+		overflow: hidden;
+		height: 100%;
+	}
+}
+
+body {
+
+	.mobile-nav & {
+		overflow: hidden;
+		min-height: 100%;
+	}
+}
+
+#mobile-navigation {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	max-width: 400px;
+	@include font-size(0.7);
+	background: #fff;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 999999;
+	transform: translateX(-100%);
+	visibility: hidden;
+
+	.mobile-nav & {
+		visibility: visible;
+		transform: translateX(0);
+	}
+}
+
+.close {
+	display: block;
+	width: 36px;
+	height: 36px;
+
+	line {
+		stroke-miterlimit: 10;
+		stroke-width: 2px;
+		stroke: rgba($theme-secondary, 0.4);
+	}
+}
+
+#page {
+	position: relative;
+	transform: translateX(0);
+	overflow-x: hidden;
+	height: 100%;
+	width: 100%;
+
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: rgba(#000, 0.5);
+		visibility: hidden;
+		opacity: 0;
+	}
+
+	.mobile-nav & {
+		transform: translateX(10em);
+
+		&:after {
+			visibility: visible;
+			opacity: 1;
+		}
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	.nav-previous {
+		float: left;
+		width: 50%;
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 50%;
+	}
+}
